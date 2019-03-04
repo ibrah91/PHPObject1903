@@ -1,22 +1,22 @@
 <?php 
-//Les inclusions
-function autoloader_perso($className){
-        var_dump($className);
-        require_once('Classes/'.$className.'.php');
-}
-            spl_autoload_register('autoloader_perso');
-            echo 'Bonjour';
+echo 'Bonjour';
 
-//Création d'objet
+require_once 'autoloader.php';
 
-                $hamac = new Product();
-                var_dump($hamac);
+//Création d'un premier objet product : un hamac
+
+                $hamac=new Product();
+               
+
 //Changement des valeurs des propriétés du hamac
-                $hamac->name = 'Hamac';
+                $hamac->setName ('Hamac');
                 var_dump($hamac);
-                $hamac->description = 'sert à glander';
+                $hamac->setDescription('sert à glander');
                 var_dump($hamac);
-                $hamac->price =150;
+                $hamac->setPrice(150);
+
+
+                //debug du hamac
                 var_dump($hamac);
                 
 //Création d'un deuxiéme objet
@@ -24,13 +24,13 @@ $parasol = new Product();
 var_dump($parasol);
 
 
-                $parasol->price = 300;
+                $parasol->setPrice(300);
                 var_dump ($parasol);
 
 
 
 
-//création d'un e nouvelle category
+//création d'une nouvelle category
 $voyage = new Category();
 var_dump($voyage);
 
@@ -39,7 +39,7 @@ var_dump($hamac);
 
 //Affichage d'une propriété (price) du parasol
 
-echo '<p>'.$hamac->price.'€</p>';
+echo '<p>'.$hamac->getPrice().'€</p>';
 
 
                 echo '<p>'.$hamac->displayPrice().'€</p>';
@@ -47,5 +47,6 @@ echo '<p>'.$hamac->price.'€</p>';
 
 
     echo '<p>Nombre de vues par défault des produits : '.$hamac::DEFAULT_NB_VIEWS.'</p>';
+
 ?>
 
