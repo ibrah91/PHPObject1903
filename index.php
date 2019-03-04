@@ -1,7 +1,7 @@
 <?php 
 echo 'Bonjour';
 
-require_once 'autoloader.php';
+require_once ('autoloader.php');
 
 //Création d'un premier objet product : un hamac
 
